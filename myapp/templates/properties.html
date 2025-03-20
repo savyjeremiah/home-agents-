@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Villa Agency - Property Listing by TemplateMo</title>
+
+    <link href="{% static 'bootstrap.min.css'%}" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'fontawesome.css'%}">
+    <link rel="stylesheet" href="{% static 'school.css'%}">
+    <link rel="stylesheet" href="{% static 'owl.css'%}">
+    <link rel="stylesheet" href="{% static 'animate.css'%}">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+
+
+
+
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  {% include  'nav.html'%}
+
+  
+  <div class="section properties">
+    <div class="container">
+      <ul class="properties-filter">
+        <li>
+          <a class="is_active" href="#!" data-filter="*">Show All</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".adv">Apartment</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".str">Villa House</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".rac">Penthouse</a>
+        </li>
+      </ul>
+      <div class="row properties-box">
+        {% for product in products %}
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items">
+            <div class="item">
+                <a href="property-details.html">
+                    {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    {% else %}
+                    <img src="{% static 'images/default-house.jpg' %}" alt="No image available">
+                    {% endif %}
+                </a>
+                <span class="category">{{ product.category }}</span>
+                <h6>₦{{ product.price }}</h6>
+                <h4><a href="property-details.html">{{ product.address }}</a></h4>
+                <ul>
+                    <li>Bedrooms: <span>{{ product.bedrooms }}</span></li>
+                    <li>Bathrooms: <span>{{ product.bathrooms }}</span></li>
+                    <li>Area: <span>{{ product.area }}m²</span></li>
+                    <li>Floor: <span>{{ product.floor }}</span></li>
+                    <li>Parking: <span>{{ product.parking }} spots</span></li>
+                </ul>
+                <div class="main-button">
+                    <a href="property-details.html">Schedule a visit</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="pagination">
+            <li><a href="#">1</a></li>
+            <li><a class="is_active" href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">>></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © 2048 Villa Agency Co., Ltd. All rights reserved. 
+        
+        Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/counter.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  </body>
+</html>
