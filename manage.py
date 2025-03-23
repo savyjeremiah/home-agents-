@@ -6,7 +6,11 @@ import sys
 
 def main():
     """Run administrative tasks."""
+<<<<<<< HEAD
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommerce.settings')
+=======
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'house.settings')
+>>>>>>> 8634f16 (Synced with remote and added local changes)
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
