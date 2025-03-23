@@ -1,14 +1,23 @@
 {
-    "builds": [{
-      "src": "ecommerce/wsgi.py",
+  "version": 2,
+  "builds": [
+    {
+      "src": "house/wsgi.py",
       "use": "@vercel/python",
-      "config": { "runtime": "python3.9" }
-    }],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "ecommerce/wsgi.py"
+      "config": { 
+        "runtime": "python3.10",
+        "malxbdosasize": "15mb"  
       }
-    ]
-  }
-  
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "house/wsgi.py"
+    }
+  ]
+}
